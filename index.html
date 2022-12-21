@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" id="wordInput">
+  <button id="evaluateButton">Evaluar</button>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script>
+    function evaluateWord() {
+      // Obtener la palabra del elemento input
+      const word = document.getElementById('wordInput').value;
+      // Verificar si la palabra es igual de izquierda a derecha y viceversa
+      if (word === word.split('').reverse().join('')) {
+        // Mostrar un mensaje de sweetalert indicando que la palabra es igual de izquierda a derecha y viceversa
+        Swal.fire({
+          title: 'Palabra igual de izquierda a derecha y viceversa',
+          text: `La palabra "${word}" es igual de izquierda a derecha y viceversa.`,
+          icon: 'success',
+        });
+      } else {
+        // Mostrar un mensaje de sweetalert indicando que la palabra no es igual de izquierda a derecha y viceversa
+        Swal.fire({
+          title: 'Palabra no igual de izquierda a derecha y viceversa',
+          text: `La palabra "${word}" no es igual de izquierda a derecha y viceversa.`,
+          icon: 'error',
+        });
+      }
+    }
+    // Agregar un evento click al botón para llamar a la función evaluateWord cuando sea clickeado
+    document.getElementById('evaluateButton').addEventListener('click', evaluateWord);
+  </script>
+</body>
+</html>
